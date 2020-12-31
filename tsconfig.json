@@ -1,0 +1,16 @@
+{
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "module": "ES6",
+    "target": "ES2017",
+    "paths": {
+      "@chrome/*": ["./chrome/*"],
+      "@frontend/*": ["./frontend/*"]
+    }
+  }
+}
