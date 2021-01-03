@@ -1,5 +1,3 @@
-const isExtension = !!(chrome && chrome.runtime && chrome.runtime.reload)
-
 const options = {
   path: '/__webpack_hmr'
 }
@@ -41,16 +39,23 @@ function handleMessage(event) {
     
     switch (msg.action) {
       case 'built':
-        if (isExtension) {
-          // 如果是chrome extension devtools环境, reload
-          chrome.runtime.reload()
-        }
-        setTimeout(() => {
-          console.log('reloading...')
-          location.reload()
-        }, 16);
+        builtHandler(msg)
+        break
       default:
         console.log(msg.action)
     }
+  }
+}
+
+// 接受到服务器更新消息，通知页面reload
+function builtHandler() {
+  const isExtension = !!(chrome && chrome.runtime)
+  console.log('reloading...')
+  if (isExtension) {
+    chrome.runtime.reload && chrome.runtime.reload()
+    chrome.runtime.sendMessage('reload')
+    setTimeout(() => {
+      location.reload()
+    }, 16);
   }
 }

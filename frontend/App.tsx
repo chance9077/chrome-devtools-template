@@ -2,7 +2,7 @@ import React, { FC } from "react"
 
 const App: FC = () => {
   return (
-    <div>hello</div>
+    <div>hello word 231</div>
   )
 }
 

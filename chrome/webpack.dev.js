@@ -16,7 +16,7 @@ module.exports = merge(baseConfig, /** @type {import('webpack/index').Configurat
     devtools: './src/devtools.ts',
     'devtools-background': [
       './src/devtools-background.ts',
-      `@bin/client?path=http://${devServer.host}:${devServer.port}${devServer.path}`
+      `@bin/client.js?path=http://${devServer.host}:${devServer.port}${devServer.path}`
     ]
   },
   output: {
