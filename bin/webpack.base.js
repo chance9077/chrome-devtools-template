@@ -3,13 +3,14 @@ const WebpackBar = require('webpackbar')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { name: projectName } = require('../package.json')
 
-/** @type {import('webpack/index').Configuration} */
+/** @type {import('webpack').Configuration} */
 module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json'],
     alias: {
       '@chrome': path.resolve(__dirname, '../chrome'),
-      '@frontend': path.resolve(__dirname, '../frontend')
+      '@frontend': path.resolve(__dirname, '../frontend'),
+      '@bin': __dirname
     },
     symlinks: false
   },
@@ -21,12 +22,6 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  },
-  watchOptions: {
-    ignored: ['node_modules', 'chrome/build']
-  },
-  optimization: {
-    moduleIds: 'named'
   },
   plugins: [
     new CleanWebpackPlugin(),

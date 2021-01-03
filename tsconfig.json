@@ -10,7 +10,8 @@
     "target": "ES2017",
     "paths": {
       "@chrome/*": ["./chrome/*"],
-      "@frontend/*": ["./frontend/*"]
+      "@frontend/*": ["./frontend/*"],
+      "@bin/*": ["./bin/*"]
     }
   }
 }

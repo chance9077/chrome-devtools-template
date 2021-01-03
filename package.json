@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node build/server.js"
+    "dev": "node bin/server.js"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.127",

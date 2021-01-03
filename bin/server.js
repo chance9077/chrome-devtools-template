@@ -2,16 +2,17 @@ const webpack = require('webpack')
 const wdm = require('webpack-dev-middleware')
 const whm = require('webpack-hot-middleware') 
 const express = require('express')
-const config = require('../chrome/webpack.config')
+const config = require('../chrome/webpack.dev')
 
 const compiler = webpack(config)
 
 const app = express()
 
+const { devServer: { host, port, writeToDisk } } = config
 app.use(wdm(compiler, {
-  writeToDisk: true
+  writeToDisk
 }))
 
 app.use(whm(compiler))
 
-app.listen(5000, () => console.log('server is running at http://localhost:5000'))
+app.listen(port, host)
