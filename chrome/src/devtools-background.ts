@@ -1,5 +1,5 @@
 chrome.devtools.panels.create(
-  'title',
+  'Demo',
   'icons/16.png',
   'devtools.html',
   panel => {

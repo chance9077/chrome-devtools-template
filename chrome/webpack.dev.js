@@ -34,6 +34,9 @@ module.exports = merge(baseConfig, /** @type {import('webpack/index').Configurat
   optimization: {
     moduleIds: 'named'
   },
+  infrastructureLogging: {
+    level: 'none'
+  },
   devtool: 'inline-source-map',
   devServer
 })
