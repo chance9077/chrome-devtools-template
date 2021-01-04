@@ -1,8 +1,8 @@
 chrome.devtools.panels.create(
-  'Mock',
+  'title',
   'icons/16.png',
   'devtools.html',
   panel => {
-    console.log('panel is created')
+    console.log('panel created')
   }
 )

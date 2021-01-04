@@ -13,7 +13,10 @@ module.exports = merge(baseConfig, /** @type {import('webpack/index').Configurat
   context: __dirname,
   mode: 'development',
   entry: {
-    devtools: './src/devtools.ts',
+    devtools: [
+      './src/devtools.ts',
+      '@bin/autoLoad-devtools-page.js'
+    ],
     'devtools-background': [
       './src/devtools-background.ts',
       `@bin/client.js?path=http://${devServer.host}:${devServer.port}${devServer.path}`
@@ -26,7 +29,7 @@ module.exports = merge(baseConfig, /** @type {import('webpack/index').Configurat
     hotUpdateMainFilename: 'hot/[hash].hot-update.json'
   },
   watchOptions: {
-    ignored: ['node_modules', 'chrome/build']
+    ignored: ['node_modules', 'chrome/build', 'webpack.dev.js', 'webpack.prod.js']
   },
   optimization: {
     moduleIds: 'named'

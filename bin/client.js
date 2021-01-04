@@ -52,10 +52,7 @@ function builtHandler() {
   const isExtension = !!(chrome && chrome.runtime)
   console.log('reloading...')
   if (isExtension) {
-    chrome.runtime.reload && chrome.runtime.reload()
     chrome.runtime.sendMessage('reload')
-    setTimeout(() => {
-      location.reload()
-    }, 16);
   }
+  location.reload()
 }
